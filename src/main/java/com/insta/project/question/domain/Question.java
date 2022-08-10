@@ -23,7 +23,6 @@ public class Question {
 
 
     @Column(columnDefinition = "integer default 0", nullable = false)
-    private Integer hit;
 
     private Boolean replyLike;
 
