@@ -1,4 +1,4 @@
-<html layout:decorate="~{/user/layout}" class="BodyWhite">
+<html layout:decorate="~{layout}" class="BodyWhite">
 <!-- 질문 -->
 <div layout:fragment="content" class = "container my-3">
 <section>
@@ -42,7 +42,7 @@
         <!-- 답변 반복 끝  -->
         <!-- 답변 작성 -->
         <form th:action="@{|/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-3">
-            <div th:replace="user/form_errors :: formErrorsFragment"></div>
+            <div th:replace="form_errors :: formErrorsFragment"></div>
             <textarea th:field="*{content}" rows="0.1" class="form-control"></textarea>
             <button type="submit" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check2"

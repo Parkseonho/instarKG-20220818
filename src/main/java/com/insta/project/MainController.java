@@ -24,6 +24,12 @@ public class MainController {
     public String story(){
         return "story";
     }
+
+    @GetMapping("/")
+//    @ResponseBody
+    public String question(){
+        return "redirect:question/list";
+    }
 }
 
 
