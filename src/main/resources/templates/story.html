@@ -184,6 +184,7 @@
                                         <div class="d-flex justify-content-between ps-3 pe-3 pt-3 pb-1">
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
+                                                    <!-- 좋아요 싫어요 -->
                                                     <form th:action="@{|/question/like/${question.id}|}"
                                                           method="post">
                                                         <div th:if="${question.replyLike}">
@@ -207,6 +208,7 @@
                                                         </div>
                                                     </form>
                                                 </li>
+                                                <!-- 댓글로 이동 -->
                                                 <li class="list-inline-item ms-2">
                                                     <a th:href="@{|/question/list/detail/${question.id}|}"
                                                        class="btn p-0">
@@ -218,6 +220,7 @@
                                                         </svg>
                                                     </a>
                                                 </li>
+                                                <!-- 다이렉트 메시지 -->
                                                 <li class="list-inline-item ms-2">
                                                     <button class="btn p-0">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem"
@@ -248,28 +251,24 @@
                                                 <img th:src="@{/img/basic-profile-image.png}"
                                                      style="transform: scale(1.5); width: 100%; position: absolute; left: 0"/>
                                             </div>
-                                            <strong class="d-block ms-2">사용자1님 외 123,456명이 좋아합니다.</strong>
+                                            <div class ="ms-2 mt-1 "th:text="${question.content}"></div>
+
                                         </div>
-                                        <button class="btn ms-5">
-                                            <span class="text-muted">모든 답변 보기</span>
-                                        </button>
+                                       <!-- <div class="ms-2">사용자1님 외 123,456명이 좋아합니다.</div>-->
+                                        <a th:href="@{|/question/list/detail/${question.id}|}" class="btn">
+                                            <span class="text-muted ">모든 답변 보기</span>
+                                        </a>
                                         <!-- 댓글 샘플 시작 -->
-                                        <div class="d-flex ms-5">
-                                            <strong class="ms-2">사용자2</strong>
-                                            <span class="ms-1">이 댓글은 1번입니다</span>
-                                        </div>
-                                        <div class="d-flex ms-5">
-                                            <strong class="ms-2">사용자3</strong>
-                                            <span class="ms-1">이 댓글은 2번입니다</span>
-                                        </div>
-                                        <div class="d-flex ms-5">
-                                            <strong class="ms-2">사용자4</strong>
-                                            <span class="ms-1">이 댓글은 3번입니다</span>
+                                        <div class="d-flex ps-3 pe-3 pb-1" th:each="answer, index : ${question.answerList}">
+                                            <spanp th:if="${index.index} == 0">
+                                                <strong>김씨</strong>
+                                                <spanp class="text-muted"  th:text="${answer.content}"></spanp>
+                                            </spanp>
                                         </div>
                                         <!-- 댓글 샘플 끝 -->
                                         <!-- 답글 단지 지난시간체크 써도되고 안써도됨-->
                                         <div class="ms-2">
-                                            <small class="text-muted ms-5">1시간 전...</small>
+                                            <div class="text-muted ms-2 mb-2" th:text="${#temporals.format(question.createDate, 'M월 d일')}"></div>
                                         </div>
                                         <!-- 답글 단지 지난시간체크 끝 써도되고 안써도됨-->
                                     </div>
