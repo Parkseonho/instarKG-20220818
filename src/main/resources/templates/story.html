@@ -189,16 +189,19 @@
                                                           method="post">
                                                         <div th:if="${question.replyLike}">
                                                             <button class="btn p-0">
-                                                            <svg type="submit" xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                 height="1.5em" fill="currentColor" class="bi bi-star-fill"
-                                                                 viewBox="0 0 16 16">
-                                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                                            </svg>
+                                                                <svg type="submit" xmlns="http://www.w3.org/2000/svg"
+                                                                     width="1.5em"
+                                                                     height="1.5em" fill="currentColor"
+                                                                     class="bi bi-star-fill"
+                                                                     viewBox="0 0 16 16">
+                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                                </svg>
                                                             </button>
                                                         </div>
                                                         <div th:if="!${question.replyLike}">
                                                             <button class="btn p-0">
-                                                                <svg type="submit" xmlns="http://www.w3.org/2000/svg" width="1.5em"
+                                                                <svg type="submit" xmlns="http://www.w3.org/2000/svg"
+                                                                     width="1.5em"
                                                                      height="1.5em"
                                                                      fill="currentColor" class="bi bi-star"
                                                                      viewBox="0 0 16 16">
@@ -251,31 +254,37 @@
                                                 <img th:src="@{/img/basic-profile-image.png}"
                                                      style="transform: scale(1.5); width: 100%; position: absolute; left: 0"/>
                                             </div>
-                                            <div class ="ms-2 mt-1 "th:text="${question.content}"></div>
+                                            <div class="ms-2 mt-1 " th:text="${question.content}"></div>
 
                                         </div>
-                                       <!-- <div class="ms-2">사용자1님 외 123,456명이 좋아합니다.</div>-->
-                                        <a th:href="@{|/question/list/detail/${question.id}|}" class="btn">
-                                            <span class="text-muted ">모든 답변 보기</span>
-                                        </a>
+                                        <!-- <div class="ms-2">사용자1님 외 123,456명이 좋아합니다.</div>-->
+                                        <span class="text-muted" th:if="${#lists.size(question.answerList)}!=0">
+                                           <a class="Modal-Nomal ms-3" th:href="@{|/question/list/detail/${question.id}|}"
+                                              th:text="|${#lists.size(question.answerList)}개의 답변 모두 보기|"></a>
+                                         </span>
+                                        <span th:if="${#lists.size(question.answerList)}==0"></span>
                                         <!-- 댓글 샘플 시작 -->
-                                        <div class="d-flex ps-3 pe-3 pb-1" th:each="answer, index : ${question.answerList}">
+                                        <div class="d-flex ps-3 pe-3 pb-1"
+                                             th:each="answer, index : ${question.answerList}">
                                             <spanp th:if="${index.index} == 0">
                                                 <strong>김씨</strong>
-                                                <spanp class="text-muted"  th:text="${answer.content}"></spanp>
+                                                <spanp class="text-muted" th:text="${answer.content}"></spanp>
                                             </spanp>
                                         </div>
                                         <!-- 댓글 샘플 끝 -->
                                         <!-- 답글 단지 지난시간체크 써도되고 안써도됨-->
                                         <div class="ms-2">
-                                            <div class="text-muted ms-2 mb-2" th:text="${#temporals.format(question.createDate, 'M월 d일')}"></div>
+                                            <div class="text-muted ms-2 mb-2"
+                                                 th:text="${#temporals.format(question.createDate, 'M월 d일')}"></div>
                                         </div>
                                         <!-- 답글 단지 지난시간체크 끝 써도되고 안써도됨-->
                                     </div>
                                     <div class="position-relative comment-box">
-                                        <form>
-                                            <input class="w-100 border-0 p-2" type="text" placeholder="답글달기">
-                                            <button class="btn position-absolute btn-st fw-bold">확인</button>
+                                        <form th:action="@{|/question/create/${question.id}|}" method="post">
+                                            <input name="content" class="w-100 border-0 p-2" type="text"
+                                                   placeholder="답글달기">
+                                            <button type="submit" class="btn position-absolute btn-st fw-bold">확인
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -586,6 +595,8 @@ function move(url){
     sessionStorage.removeItem("question_id");
 }
 //파일이름 쪼개기
+
+
 
 
 
