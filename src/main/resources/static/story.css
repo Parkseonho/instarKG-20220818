@@ -1,3 +1,9 @@
+/*a태그 노말라이즈*/
+.Modal-Nomal {
+  color:inherit;
+  text-decoration:inherit;
+}
+
 /* 상단 네비바 프로필 크기관련 */
 .topbar-profile-photo{
     width: 1.5em;
@@ -76,3 +82,21 @@
 }
 
 /* 팔로우 버튼 */
+
+/*좋아요 싫어요*/
+.like{
+background :url("/icon/like.png") no-repeat;
+border : none;
+cursor : pointer;
+}
+
+.unlike{
+background :url("/icon/unlike.png") no-repeat;
+border : none;
+cursor : pointer;
+}
+
+.icon-size{
+width : 1.5em;
+height:1.5em;
+}

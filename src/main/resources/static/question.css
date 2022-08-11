@@ -137,13 +137,13 @@ a {
 }
 
 .like{
-background :url("./icon/like.png") no-repeat;
+background :url("/icon/like.png") no-repeat;
 border : none;
 cursor : pointer;
 }
 
 .unlike{
-background :url("./icon/unlike.png") no-repeat;
+background :url("/icon/unlike.png") no-repeat;
 border : none;
 cursor : pointer;
 
