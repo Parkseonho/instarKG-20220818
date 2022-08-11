@@ -32,7 +32,7 @@ public class QuestionController {
     public String showQuestions(Model model) {
         List<Question> questionList = this.questionService.getList();
         model.addAttribute("question", questionList);
-        return "question";
+        return "story";
     }
 
     @RequestMapping("list/detail/{id}")
@@ -58,7 +58,7 @@ public class QuestionController {
         Question question = this.questionService.getQuestion(id);
         if(bindingResult.hasErrors()){
             model.addAttribute("question", question);
-            return "question";
+            return "story";
         }
         this.answerService.create(question, answerForm.getContent());
         return "redirect:/question/list";
