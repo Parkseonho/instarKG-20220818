@@ -9,7 +9,7 @@
                 <div class="container justify-content-center">
                     <div class="d-flex flex-row justify-content-between align-items-center col-9">
                         <!-- InstaKG 로고 들어갈 부분 조절 가능-->
-                        <a class="navbar-brand" href="#">InstaKG
+                        <a class="navbar-brand" th:href="@{/question/list}">InstaKG
                             <!-- <img th:src="@{img/MainLogo2.png}" alt="InstaKG" loading="lazy"> -->
                         </a>
                         <div>
@@ -136,7 +136,7 @@
                             <!-- 게시물 관련 시작-->
                             <div class="d-flex flex-column mb-4 mt-4" th:each="question : ${question}">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header mb-3">
                                         <div class="d-flex flex-row align-items-center justify-content-between">
                                             <div class="d-flex align-items-center ms-2">
                                                 <div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center border border-danger post-profile-photo me-3">
