@@ -257,35 +257,50 @@
                                             <div class="ms-2 mt-1 " th:text="${question.content}"></div>
 
                                         </div>
-                                        <!-- <div class="ms-2">사용자1님 외 123,456명이 좋아합니다.</div>-->
-                                        <span class="text-muted" th:if="${#lists.size(question.answerList)}!=0">
-                                           <a class="Modal-Nomal ms-3" th:href="@{|/question/list/detail/${question.id}|}"
+                                        <!--댓글막기 유무-->
+                                        <div th:if="!${question.onOff}">
+                                            <!-- <div class="ms-2">사용자1님 외 123,456명이 좋아합니다.</div>-->
+                                            <span class="text-muted" th:if="${#lists.size(question.answerList)}!=0">
+                                           <a class="Modal-Nomal ms-3"
+                                              th:href="@{|/question/list/detail/${question.id}|}"
                                               th:text="|${#lists.size(question.answerList)}개의 답변 모두 보기|"></a>
                                          </span>
-                                        <span th:if="${#lists.size(question.answerList)}==0"></span>
-                                        <!-- 댓글 샘플 시작 -->
-                                        <div class="d-flex ps-3 pe-3 pb-1"
-                                             th:each="answer, index : ${question.answerList}">
-                                            <spanp th:if="${index.index} == 0">
-                                                <strong>김씨</strong>
-                                                <spanp class="text-muted" th:text="${answer.content}"></spanp>
-                                            </spanp>
+                                            <span th:if="${#lists.size(question.answerList)}==0"></span>
+                                            <!-- 댓글 샘플 시작 -->
+                                            <div class="d-flex ps-3 pe-3 pb-1"
+                                                 th:each="answer, index : ${question.answerList}">
+                                                <spanp th:if="${index.index} == 0">
+                                                    <strong>김씨</strong>
+                                                    <spanp class="text-muted" th:text="${answer.content}"></spanp>
+                                                </spanp>
+                                            </div>
+                                            <!-- 댓글 샘플 끝 -->
+                                            <!-- 답글 단지 지난시간체크 써도되고 안써도됨-->
+
+                                            <!-- 답글 단지 지난시간체크 끝 써도되고 안써도됨-->
                                         </div>
-                                        <!-- 댓글 샘플 끝 -->
-                                        <!-- 답글 단지 지난시간체크 써도되고 안써도됨-->
                                         <div class="ms-2">
                                             <div class="text-muted ms-2 mb-2"
                                                  th:text="${#temporals.format(question.createDate, 'M월 d일')}"></div>
                                         </div>
-                                        <!-- 답글 단지 지난시간체크 끝 써도되고 안써도됨-->
                                     </div>
                                     <div class="position-relative comment-box">
+                                        <div th:if="!${question.onOff}">
                                         <form th:action="@{|/question/create/${question.id}|}" method="post">
                                             <input name="content" class="w-100 border-0 p-2" type="text"
                                                    placeholder="답글달기">
                                             <button type="submit" class="btn position-absolute btn-st fw-bold">확인
                                             </button>
                                         </form>
+                                        </div>
+                                        <div th:if="${question.onOff}">
+                                            <form th:action="@{|/question/create/${question.id}|}" method="post">
+                                                <input name="content" class="w-100 border-0 p-2" type="text"
+                                                       placeholder="답글달기" disabled>
+                                                <button type="submit" class="btn position-absolute btn-st fw-bold">확인
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -595,6 +610,7 @@ function move(url){
     sessionStorage.removeItem("question_id");
 }
 //파일이름 쪼개기
+
 
 
 
