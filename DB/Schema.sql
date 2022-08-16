@@ -1,15 +1,14 @@
 # DB 생성
-DROP DATABASE IF EXISTS sbb;
-CREATE DATABASE sbb;
-USE sbb;
+DROP DATABASE IF EXISTS sbbb;
+CREATE DATABASE sbbb;
+USE sbbb;
 
 CREATE TABLE Question (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     content TEXT NOT NULL,
     create_date DATETIME NOT NULL,
     modify_date DATETIME DEFAULT NOW(),
-    hit INT(11) UNSIGNED,
-    reply_like VARCHAR(10) NOT NULL,
+    reply_like TINYINT DEFAULT 0,
     on_off TINYINT DEFAULT 0,
     answer_id INT(11) UNSIGNED
 );
@@ -41,4 +40,4 @@ phone TEXT NOT NULL
 SELECT * FROM `user`;
 SELECT * FROM Question;
 SELECT * FROM Answer;
-SELECT * FROM files;;
+SELECT * FROM files;
