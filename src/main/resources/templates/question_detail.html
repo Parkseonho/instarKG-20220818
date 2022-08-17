@@ -118,7 +118,7 @@
                         <!-- 게시물 관련 끝-->
 
 
-                        <div class="col-4 p-0">
+                        <div class="col-4 p-0 m-0 ">
                             <div class="card-header">
                                 <div class="d-flex flex-row align-items-center">
                                     <div class="d-flex align-items-center ms-2">
@@ -148,8 +148,8 @@
                                 <div th:if="!${question.onOff}">
                                     <div class="card QuestionDetailCommentOverflow">
                                         <div th:each="answer : ${question.answerList}"
-                                             class="card-body bg-white border-bottom p-10">
-                                            <div class="d-flex justify-content-between">
+                                             class="card-body bg-white border-bottom QuestionDetailComment">
+                                            <div class="d-flex justify-content-between ">
                                                 <div th:text="${answer.content}"></div>
                                                 <button type="button" class="btn form-inline pt-0 pb-10" id="myModal"
                                                         data-bs-toggle="modal"
