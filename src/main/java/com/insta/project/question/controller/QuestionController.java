@@ -70,4 +70,10 @@ public class QuestionController {
         return "redirect:/question/list";
     }
 
+    @PostMapping("/detail/like/{id}")
+    public String questionDetailLike(@PathVariable("id") Integer id){
+        this.questionService.setLike(id);
+        return String.format("redirect:/question/list/detail/%s",id);
+    }
+
 }

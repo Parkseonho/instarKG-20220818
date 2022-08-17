@@ -33,14 +33,14 @@ public class AnswerController {
         return String.format("redirect:/question/list/detail/%s", id);
     }
 
-    @PostMapping("/like/{questionId}/{answerId}")
+    @PostMapping("/detail/like/{questionId}/{answerId}")
     public String createAnswer(@PathVariable("questionId") Integer questionId, @PathVariable("answerId") Integer answerId) {
         this.answerService.setLike(answerId);
 
         return String.format("redirect:/question/list/detail/%s", questionId);
     }
 
-    @PostMapping("/main/like/{questionId}/{answerId}")
+    @PostMapping("/like/{questionId}/{answerId}")
     public String createAnswers(@PathVariable("questionId") Integer questionId, @PathVariable("answerId") Integer answerId) {
         this.answerService.setLike(answerId);
         return "redirect:/question/list";
