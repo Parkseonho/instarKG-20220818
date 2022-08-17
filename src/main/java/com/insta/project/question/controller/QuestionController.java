@@ -35,6 +35,11 @@ public class QuestionController {
         return "story";
     }
 
+    @RequestMapping("/user")
+    public String UserDetail(Model model) {
+        return "profile";
+    }
+
     @RequestMapping("list/detail/{id}")
     public String showDetail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm){
         Question question = this.questionService.getQuestion(id);
