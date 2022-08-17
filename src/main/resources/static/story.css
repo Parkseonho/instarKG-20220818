@@ -107,16 +107,12 @@ height:1.5em;
 
 .QuestionDetailCommentOverflow{
   position: static;
-  height: auto;
+  height: 380px;
   overflow:auto;
   }
 
-/*.QuestionDetailComment{
-position: relative;
-height: 20px;
-}*/
-
 .QuestionDetailImgStatic{
 position: static;
-height: 480px;
+height: 650px;
+overflow:auto;
 }
