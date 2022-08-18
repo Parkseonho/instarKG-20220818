@@ -1,4 +1,3 @@
-/*
 package com.insta.project.answerComment.controller;
 
 import com.insta.project.answer.AnswerForm;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 
-@RequestMapping("/answer")
+@RequestMapping("/answer/comment")
 @RequiredArgsConstructor
 @Controller
 public class AnswerCommentController {
@@ -48,4 +47,3 @@ public class AnswerCommentController {
     }
 
 }
-*/

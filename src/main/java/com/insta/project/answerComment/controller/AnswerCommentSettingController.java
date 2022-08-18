@@ -1,4 +1,3 @@
-/*
 package com.insta.project.answerComment.controller;
 
 import com.insta.project.answer.AnswerForm;
@@ -14,7 +13,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/comment")
+@RequestMapping("/answer/comment/setting")
 @RequiredArgsConstructor
 public class AnswerCommentSettingController {
     private final AnswerService answerService;
@@ -48,4 +47,3 @@ public class AnswerCommentSettingController {
 
 }
 
-*/
