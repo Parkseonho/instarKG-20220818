@@ -81,4 +81,11 @@ public class QuestionController {
         return String.format("redirect:/question/list/detail/%s",id);
     }
 
+    @GetMapping("/profile")
+//    @ResponseBody
+    public String profile(Model model){
+        List<Question> questionList = this.questionService.getList();
+        model.addAttribute("question", questionList);
+        return "profile";
+    }
 }
