@@ -113,8 +113,16 @@
             <ul class="board_list">
                 <li th:each="question: ${question}">
                     <a th:href="@{|/question/list/detail/${question.id}|}">
-                        <div class="board_img">
-                            <img th:src="@{/img/ggosom3.jpg}" alt="">
+                        <div th:each="image,index: ${question.fileList}">
+                                 <span th:if="${index.index} == 0">
+                                     <img th:if="${image.filename.contains('jpg')||image.filename.contains('png')}"
+                                          height="300" width="300"
+                                          th:src="'/uploadFiles/'+${image.filename}" alt="img">
+                                     <video th:unless="${image.filename.contains('jpg')||image.filename.contains('png')}"
+                                            height="300" width="300" class="bg-white"
+                                            controls
+                                            th:src="'/uploadFiles/'+${image.filename}"></video>
+                              </span>
                         </div>
                     </a>
                 </li>
