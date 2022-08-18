@@ -30,6 +30,11 @@ public class MainController {
     public String profile(){
         return "profile";
     }
+    @GetMapping("/setprofile")
+//    @ResponseBody
+    public String setprofile(){
+        return "setprofile";
+    }
 
     @GetMapping("/")
 //    @ResponseBody
