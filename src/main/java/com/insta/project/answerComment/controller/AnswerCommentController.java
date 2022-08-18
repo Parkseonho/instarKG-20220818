@@ -1,4 +1,5 @@
-package com.insta.project.answer.controller;
+/*
+package com.insta.project.answerComment.controller;
 
 import com.insta.project.answer.AnswerForm;
 import com.insta.project.answer.AnswerService;
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 @RequestMapping("/answer")
 @RequiredArgsConstructor
 @Controller
-public class AnswerController {
+public class AnswerCommentController {
     private final QuestionService questionService;
     private final AnswerService answerService;
 
@@ -36,6 +37,7 @@ public class AnswerController {
     @PostMapping("/detail/like/{questionId}/{answerId}")
     public String createAnswer(@PathVariable("questionId") Integer questionId, @PathVariable("answerId") Integer answerId) {
         this.answerService.setLike(answerId);
+
         return String.format("redirect:/question/list/detail/%s", questionId);
     }
 
@@ -46,3 +48,4 @@ public class AnswerController {
     }
 
 }
+*/

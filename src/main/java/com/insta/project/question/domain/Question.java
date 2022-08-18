@@ -3,6 +3,7 @@ package com.insta.project.question.domain;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.insta.project.answer.domain.Answer;
+import com.insta.project.answerComment.domain.AnswerComment;
 import com.insta.project.files.domain.Files;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,6 +41,9 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Files> fileList;
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
+    private List<AnswerComment> answerCommentsList;
 
 
     @Converter

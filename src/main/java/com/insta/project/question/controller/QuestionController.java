@@ -45,6 +45,7 @@ public class QuestionController {
     @RequestMapping("list/detail/{id}")
     public String showDetail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm){
         Question question = this.questionService.getQuestion(id);
+        Collections.sort(question.getAnswerList(), (a, b) -> b.getId() - a.getId());
         model.addAttribute("question", question);
         return "question_detail";
     }

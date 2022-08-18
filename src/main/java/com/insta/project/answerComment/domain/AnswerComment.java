@@ -1,21 +1,20 @@
-package com.insta.project.answer.domain;
+package com.insta.project.answerComment.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.insta.project.answerComment.domain.AnswerComment;
+import com.insta.project.answer.domain.Answer;
 import com.insta.project.question.domain.Question;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
-public class Answer {
+public class AnswerComment{
     @Id
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,10 +32,8 @@ public class Answer {
 
     @ManyToOne
     private Question question;
-
-    @OneToMany(mappedBy = "answer", cascade = CascadeType.REMOVE)
-    private List<AnswerComment> answerCommentsList;
-
+    @ManyToOne
+    private Answer answer;
     @Converter
     class BooleanToYNConverter implements AttributeConverter<Boolean, String>{
         @Override
