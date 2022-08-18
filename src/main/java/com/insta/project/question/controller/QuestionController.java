@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -31,6 +32,7 @@ public class QuestionController {
     @RequestMapping("/list")
     public String showQuestions(Model model) {
         List<Question> questionList = this.questionService.getList();
+        Collections.sort(questionList, (a, b) -> b.getId() - a.getId());
         model.addAttribute("question", questionList);
         return "story";
     }
@@ -85,6 +87,7 @@ public class QuestionController {
 //    @ResponseBody
     public String profile(Model model){
         List<Question> questionList = this.questionService.getList();
+        Collections.sort(questionList, (a, b) -> b.getId() - a.getId());
         model.addAttribute("question", questionList);
         return "profile";
     }

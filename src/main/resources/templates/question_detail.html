@@ -19,10 +19,10 @@
                                         <div class="swiper mySwiper">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide" th:each="image : ${question.fileList}">
-                                                    <img th:if="${image.filename.contains('jpg')}"
+                                                    <img th:if="${image.filename.contains('jpg')||image.filename.contains('png')}"
                                                          class="QuestionDetailImgStatic"
                                                          th:src="'/uploadFiles/'+${image.filename}" alt="img">
-                                                    <video th:unless="${image.filename.contains('jpg')}"
+                                                    <video th:unless="${image.filename.contains('jpg')||image.filename.contains('png')}"
                                                            class="QuestionDetailImgStatic" controls
                                                            th:src="'/uploadFiles/'+${image.filename}"></video>
                                                 </div>
