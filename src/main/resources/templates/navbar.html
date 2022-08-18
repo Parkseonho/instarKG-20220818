@@ -30,7 +30,7 @@
                             </li>
                             <!-- 집(홈) 아이콘-->
                             <li class="list-inline-item">
-                                <a href="#" class="link-dark">
+                                <a th:href="@{list}" class="link-dark">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5em"
                                          fill="currentColor"
                                          class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -51,7 +51,7 @@
                             </li>
                             <!-- 나침반 아이콘 -->
                             <li class="list-inline-item ms-2">
-                                <a href="#" class="link-dark">
+                                <a href="https://www.youtube.com/watch?v=OSyDQ2aTOgA" class="link-dark">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5em"
                                          fill="currentColor"
                                          class="bi bi-compass" viewBox="0 0 16 16">
@@ -62,7 +62,7 @@
                             </li>
                             <!-- 사람 아이콘-->
                             <li class="list-inline-item ms-2">
-                                <a href="#" class="link-dark">
+                                <a th:href="@{/profile}" class="link-dark">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5em"
                                          fill="currentColor"
                                          class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -70,15 +70,6 @@
                                         <path fill-rule="evenodd"
                                               d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                     </svg>
-                                </a>
-                            </li>
-                            <li class="list-inline-item align-middle ms-2">
-                                <a href="#">
-                                    <div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center topbar-profile-photo">
-                                        <!-- 상단바 프로필사진 -->
-                                        <img th:src="@{/img/basic-profile-image.png}"
-                                             style="transform: scale(1.5); width: 100%; position: absolute; left: 0"/>
-                                    </div>
                                 </a>
                             </li>
                         </ui>
